@@ -1,0 +1,39 @@
+# {{AGENT_NAME}} Agent Configuration
+
+# Basic information
+agent:
+  name: "{{AGENT_NAME}} Agent"
+  package_name: "{{AGENT_PACKAGE}}"
+  description: "{{AGENT_DESCRIPTION}}"
+  domain: "{{AGENT_DOMAIN}}"
+
+# Interest model configuration
+interest_model:
+  threshold: 0.67                  # Similarity threshold
+  clustering_method: "kmeans"      # Clustering algorithm
+  num_clusters: 3                  # Number of clusters for examples
+  dimension: 384
+use_classifier: true
+classifier_threshold: 0.5
+polling_interval: 1.0
+max_messages_per_poll: 20
+
+# Example generation
+examples:
+  batches: 3                       # Number of batches to run
+  batch_size: 10                   # Number of examples to generate per batch
+  positive_ratio: 0.8              # Ratio of positive examples
+  include_default: true            # Include some predefined examples
+
+# Classifier training
+classifier:
+  train: true                      # Whether to train a classifier
+  epochs: 5                        # Training epochs
+  batch_size: 16                   # Batch size
+  learning_rate: 2e-5              # Learning rate
+  dropout: 0.1                     # Dropout rate
+
+# Agent behavior
+behavior:
+  polling_interval: 3.0            # Seconds between polls
+  max_messages_per_poll: 10        # Max messages per poll
